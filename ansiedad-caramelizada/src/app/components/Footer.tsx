@@ -9,7 +9,7 @@ export default function Footer() {
           <h2 className="text-2xl font-bold">Ansiedad Caramelizada</h2>
           <p className="text-sm mt-2">© {new Date().getFullYear()} Todos los derechos reservados</p>
         </div>
-        <nav className="flex flex-col md:flex-row gap-4 md:gap-8">
+        <nav className="flex flex-col text-center md:flex-row gap-4 md:gap-8">
           <Link href="#home" className="hover:text-gray-300 transition-colors">
             Inicio
           </Link>
