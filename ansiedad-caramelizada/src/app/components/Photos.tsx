@@ -1,10 +1,18 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.6, -0.05, 0.01, 0.99] }
+const revealAnimation = {
+  initial: { 
+    opacity: 0, 
+    scale: 1.05,
+    filter: "blur(5px)"
+  },
+  animate: { 
+    opacity: 1, 
+    scale: 1,
+    filter: "blur(0px)"
+  },
+  transition: { duration: 0.5, ease: "easeOut" }
 }
 
 const staggerChildren = {
@@ -23,13 +31,11 @@ export default function Photos() {
     <div className="h-[90%] flex items-center justify-center p-8">
       <motion.div 
         className="bg-white border-2 border-black p-8 max-w-4xl w-full"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
+        {...revealAnimation}
       >
         <motion.h2 
           className="text-3xl font-semibold text-center mb-8 text-black"
-          variants={fadeInUp}
+          variants={revealAnimation}
           initial="initial"
           animate="animate"
         >
@@ -44,7 +50,7 @@ export default function Photos() {
           {photos.map((photo, index) => (
             <motion.div
               key={index}
-              variants={fadeInUp}
+              variants={revealAnimation}
               className="aspect-square relative overflow-hidden"
             >
               <Image 
