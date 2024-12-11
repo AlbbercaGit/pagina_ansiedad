@@ -33,7 +33,7 @@ export default function Page() {
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
-      const previous = scrollY.getPrevious()
+      const previous = scrollY.get()
       if (latest > previous && latest > 50) {
         setIsNavVisible(false)
       } else {
@@ -82,12 +82,7 @@ export default function Page() {
         />
       </div>
       <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
-      <motion.div
-        className="relative z-20 flex-grow flex flex-col"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <div className="relative z-20 flex flex-col min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: isNavVisible ? 1 : 0, y: isNavVisible ? 0 : -100 }}
@@ -95,11 +90,11 @@ export default function Page() {
         >
           <Navigation currentSection={currentSection} setCurrentSection={setCurrentSection} />
         </motion.div>
-        <main className="flex-grow overflow-y-auto snap-y snap-mandatory">
+        <main className="flex-grow">
           <motion.section 
             ref={homeRef}
             id="home"
-            className="h-screen snap-start"
+            className="min-h-screen"
             initial={revealAnimation.home.initial}
             animate={homeInView ? revealAnimation.home.animate : revealAnimation.home.initial}
             transition={revealAnimation.home.transition}
@@ -109,7 +104,7 @@ export default function Page() {
           <motion.section 
             ref={musicRef}
             id="music"
-            className="h-screen snap-start"
+            className="min-h-screen"
             initial={revealAnimation.music.initial}
             animate={musicInView ? revealAnimation.music.animate : revealAnimation.music.initial}
             transition={revealAnimation.music.transition}
@@ -119,7 +114,7 @@ export default function Page() {
           <motion.section 
             ref={photosRef}
             id="photos"
-            className="h-screen snap-start"
+            className="min-h-screen"
             initial={revealAnimation.photos.initial}
             animate={photosInView ? revealAnimation.photos.animate : revealAnimation.photos.initial}
             transition={revealAnimation.photos.transition}
@@ -129,14 +124,14 @@ export default function Page() {
           {/* <motion.section 
             ref={storeRef}
             id="store"
-            className="h-screen snap-start"
+            className="min-h-screen"
             {...revealAnimation}
           >
             {storeInView && <Store />}
           </motion.section> */}
         </main>
-      </motion.div>
-      <Footer />
+        <Footer />
+      </div>
     </div>
   )
 }
