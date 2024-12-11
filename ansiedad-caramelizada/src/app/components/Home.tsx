@@ -54,16 +54,14 @@ export default function Home() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="w-full mt-8"
           >
-            <iframe 
-              style={{borderRadius: '12px'}} 
-              src="https://open.spotify.com/embed/track/7zGidK8rJrN6YoDFmgWzye?utm_source=generator&theme=0" 
-              width="100%" 
-              height="152" 
-              frameBorder="0" 
-              // allowFullScreen="" 
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-              loading="lazy"
-            ></iframe>
+            <a 
+              href="https://distrokid.com/hyperfollow/ansiedadcaramelizada/sin-direccin" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-black text-white font-semibold py-3 px-6 rounded-full hover:bg-gray-800 transition-colors duration-300 border-2 border-black hover:border-gray-800"
+            >
+              Pre-save &quot;Sin dirección&quot;
+            </a>
           </motion.div>
         </div>
       </motion.div>
