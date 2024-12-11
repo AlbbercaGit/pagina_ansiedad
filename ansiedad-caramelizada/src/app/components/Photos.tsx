@@ -42,7 +42,7 @@ export default function Photos() {
           Photos
         </motion.h2>
         <motion.div 
-          className="grid grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
